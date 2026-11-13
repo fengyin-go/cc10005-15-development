@@ -33,3 +33,54 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+.notice-text { color: #15803d; }
+
+/* 增量采集：双轨区间条与观察窗口 */
+.interval-panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-top: 14px; }
+.panel-title { font-size: 14px; margin: 14px 0 6px; }
+.interval-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.interval-meta strong { color: #1f2937; }
+.track-wrap { display: flex; gap: 8px; align-items: stretch; margin-top: 22px; }
+.track-side { display: flex; flex-direction: column; font-size: 12px; color: var(--muted); }
+.track-side span { height: 34px; display: flex; align-items: center; white-space: nowrap; }
+.track-side span + span { margin-top: 6px; }
+.track-stage { position: relative; flex: 1; }
+.track-row { position: relative; height: 34px; border: 1px solid var(--border); border-radius: 6px; background: #f8fafc; overflow: hidden; }
+.track-row + .track-row { margin-top: 6px; }
+.seg { position: absolute; top: 4px; bottom: 4px; border-radius: 4px; min-width: 3px; }
+.seg-confirmed { background: #16a34a; }
+.seg-inflight { background: #2563eb; }
+.seg-paused { background: #d97706; }
+.seg-coverage { background: #7c3aed; }
+.seg-backfill-inflight { background: #a78bfa; }
+.frontier-line { position: absolute; top: -4px; bottom: -4px; border-left: 2px dashed #dc2626; pointer-events: none; }
+.frontier-tag { position: absolute; top: -16px; transform: translateX(-50%); font-size: 11px; color: #dc2626; white-space: nowrap; }
+.win-dim { position: absolute; top: 0; bottom: 0; background: rgba(15, 23, 42, 0.22); pointer-events: none; }
+.win-frame { position: absolute; top: 0; bottom: 0; border: 2px solid #0284c7; border-radius: 4px; cursor: grab; touch-action: none; }
+.win-frame:active { cursor: grabbing; }
+.win-handle { position: absolute; top: 0; bottom: 0; width: 10px; cursor: ew-resize; touch-action: none; }
+.win-handle.left { left: -6px; }
+.win-handle.right { right: -6px; }
+.track-ticks { position: relative; height: 18px; margin-top: 2px; }
+.track-ticks span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); white-space: nowrap; }
+.legend-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 12px; color: var(--muted); margin: 6px 0; }
+.legend-chip { display: inline-flex; align-items: center; gap: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.banner-warn { background: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; padding: 10px 12px; margin-top: 10px; font-size: 13px; }
+.banner-warn p { margin: 0 0 8px; }
+.claim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; margin-top: 8px; }
+.claim-card { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 13px; background: #fff; }
+.claim-card h4 { margin: 0 0 6px; font-size: 13px; }
+.claim-card p { margin: 0 0 6px; color: var(--muted); font-size: 12px; }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px; border: 1px solid var(--border); }
+.chip-inflight { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.chip-paused { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+.chip-normal { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.chip-dup { background: #f1f5f9; color: #64748b; }
+.chip-late { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+.inline-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin: 8px 0; }
+.inline-form label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 2px; }
+.inline-form input, .inline-form select, .inline-form textarea { border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 13px; }
+.data-table.clickable tbody tr { cursor: pointer; }
+.data-table.clickable tbody tr:hover td { background: #f8fafc; }
+tr.selected-row td { background: #eff6ff; }

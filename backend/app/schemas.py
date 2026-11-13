@@ -28,6 +28,31 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class WatermarkPayload(BaseModel):
+    """明确水位类型与顺序：旧样例水位是不可比较文字时，认领区间前的必备步骤。"""
+
+    水位类型: str
+    当前水位: str | None = None
+    水位顺序表: list[str] = Field(default_factory=list)
+
+
+class ClaimPayload(BaseModel):
+    """认领一个起止水位区间：实时轨从预留前沿起认，回扫轨起点由回退步数决定。"""
+
+    track: str = "realtime"
+    start: str | None = None
+    end: str | None = None
+    job: str | None = None
+
+
+class ReceiptPayload(BaseModel):
+    """批次回执：采集任务完成后凭批次号确认认领区间，重复回执不额外前移水位。"""
+
+    批次号: str
+    实际终点: str | None = None
+    样本: list[dict[str, Any]] = Field(default_factory=list)
+
+
 
 class SiteEntry(BaseModel):
     """采集站点明细结构。"""
